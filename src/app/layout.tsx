@@ -2,10 +2,11 @@ import type { Metadata } from "next";
 
 import { Noto_Sans_KR } from "next/font/google";
 
+import { Header } from "@/components/Header";
+
 import "./globals.css";
 import styles from "./layout.module.css";
-import { Button } from "@/components/Button";
-import Link from "next/link";
+import Providers from "@/components/Providers";
 
 const noto = Noto_Sans_KR({
   subsets: ["latin"],
@@ -25,17 +26,12 @@ export default function RootLayout({
   return (
     <html lang="ko">
       <body className={noto.className}>
-        <div className={styles.container}>
-          <div className={styles.header}>
-            <Link href="/">
-              <div className={styles.logo}>롤문철</div>
-            </Link>
-            <Link href="/login">
-              <Button text="로그인" />
-            </Link>
+        <Providers>
+          <div className={styles.container}>
+            <Header />
+            <div className={styles.content}>{children}</div>
           </div>
-          <div className={styles.content}>{children}</div>
-        </div>
+        </Providers>
       </body>
     </html>
   );

@@ -5,7 +5,7 @@ import axios from "axios";
 const apiUrl = process.env.NEXT_PUBLIC_LMC_API_URL;
 
 const axiosInstance = createAxiosInstance(
-  `${process.env.NEXT_PUBLIC_LMC_API_URL}/api/members`
+  `${process.env.NEXT_PUBLIC_LMC_API_URL}/members`
 );
 
 export const memberAPI = {

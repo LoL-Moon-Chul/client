@@ -54,12 +54,9 @@ const refreshAccessToken = async () => {
   try {
     const refreshToken = getCookie("lmc_rsct");
     const data = await axios
-      .post(
-        `${process.env.NEXT_PUBLIC_lmc_API_URL}/api/v1/public/access-token`,
-        {
-          refreshToken,
-        }
-      )
+      .post(`${process.env.NEXT_PUBLIC_lmc_API_URL}/token/public/reissue`, {
+        refreshToken,
+      })
       .then((res) => res.data);
 
     const newAccessToken = data.accessToken;
