@@ -1,0 +1,21 @@
+.container {
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.header {
+  height: 48px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  background: #46cfa7;
+  color: #fff;
+  font-size: 15px;
+  line-height: 1.5;
+}
+
+.content {
+  background-color: #ebeef1;
+  min-height: calc(100dvh - 48px);
+}
