@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 
 import { Noto_Sans_KR } from "next/font/google";
 
 import "./globals.css";
 import styles from "./layout.module.css";
+import { Button } from "@/components/Button";
+import Link from "next/link";
 
 const noto = Noto_Sans_KR({
   subsets: ["latin"],
@@ -12,8 +13,8 @@ const noto = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
-  title: "골잘알",
-  description: "풋살 모집 사이트",
+  title: "롤문철",
+  description: "롤문철",
 };
 
 export default function RootLayout({
@@ -26,7 +27,12 @@ export default function RootLayout({
       <body className={noto.className}>
         <div className={styles.container}>
           <div className={styles.header}>
-            <div>롤문철</div>
+            <Link href="/">
+              <div className={styles.logo}>롤문철</div>
+            </Link>
+            <Link href="/login">
+              <Button text="로그인" />
+            </Link>
           </div>
           <div className={styles.content}>{children}</div>
         </div>

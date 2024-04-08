@@ -1,0 +1,31 @@
+.main {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.main .title {
+  font-size: 24px;
+  font-weight: 700;
+  margin-bottom: 20px;
+}
+
+.main .desc {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #282b33;
+}
+
+.main .kakao {
+  width: 300px;
+  background-color: #fee500;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 15px 0px;
+  margin: 0 15px;
+  line-height: 20px;
+  text-align: center;
+  color: #282b33;
+  cursor: pointer;
+}

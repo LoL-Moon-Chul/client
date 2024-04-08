@@ -1,0 +1,10 @@
+.btn {
+  min-width: 64px;
+  min-height: 26px;
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  border-radius: 4px;
+  padding: 0 16px;
+  cursor: pointer;
+}
