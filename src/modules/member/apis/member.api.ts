@@ -11,7 +11,9 @@ const axiosInstance = createAxiosInstance(
 export const memberAPI = {
   login: (code: string) =>
     axios
-      .post(`${apiUrl}/auth/oauth/kakao/login?code=${code}`)
+      .post<{ accessToken: string; refreshTokens: string }>(
+        `${apiUrl}/auth/oauth/kakao/login?code=${code}`
+      )
       .then((res) => res.data),
   getProfile: () =>
     axiosInstance.get<ResponseUser>("/private").then((res) => res.data),
