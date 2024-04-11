@@ -1,13 +1,18 @@
 "use client";
 
+import { useState } from "react";
+import Image from "next/image";
+import dynamic from "next/dynamic";
+
 import { useForm, SubmitHandler } from "react-hook-form";
+const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
 
 import { WritePost } from "@/modules";
 
-import style from "./write.module.css";
-import Image from "next/image";
 import { Divider } from "@/components/Divider";
-import { useState } from "react";
+
+import style from "./write.module.css";
+import "react-quill/dist/quill.snow.css";
 
 export default function Write() {
   const {
@@ -19,6 +24,7 @@ export default function Write() {
 
   const [myPosition, setMyPosition] = useState<string>("");
   const [enemyPosition, setEnemyPosition] = useState<string>("");
+  const [content, setContent] = useState<string>("");
 
   const myPositionHandler = (position: string) => {
     setMyPosition(position);
@@ -163,9 +169,29 @@ export default function Write() {
           </div>
         </div>
         <Divider />
-        <div>
+        <div
+          style={{
+            height: "380px",
+          }}
+        >
           <label>내용</label>
-          <textarea {...register("content", { required: true })}></textarea>
+          <ReactQuill
+            modules={{
+              toolbar: [
+                [{ header: [1, 2, false] }],
+                ["bold", "italic", "underline", "strike", "blockquote"],
+                [{ list: "ordered" }, { list: "bullet" }],
+                ["link", "image"],
+                ["clean"],
+              ],
+            }}
+            value={content}
+            onChange={setContent}
+            style={{
+              height: "300px",
+              width: "100%",
+            }}
+          />
         </div>
         <div>
           <label>요약</label>
