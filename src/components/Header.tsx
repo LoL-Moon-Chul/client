@@ -27,7 +27,9 @@ export const Header = () => {
       <div>
         {user ? (
           <div className={styles.box}>
-            <Button color="#fff" backgroundColor="#28344e" text="글 쓰기" />
+            <Link href="/write">
+              <Button color="#fff" backgroundColor="#28344e" text="글 쓰기" />
+            </Link>
             <Button onClick={onClickLogout} text="로그아웃" />
           </div>
         ) : (

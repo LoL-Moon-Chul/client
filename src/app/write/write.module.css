@@ -1,0 +1,44 @@
+.main {
+  max-width: 728px;
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.main .title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.main input {
+  margin-bottom: 14px;
+}
+
+.main label {
+  display: block;
+  font-size: 16px;
+  font-weight: 600;
+  margin: 8px 0;
+}
+
+.main .positions {
+  display: flex;
+  justify-content: space-around;
+}
+
+.main .positions img {
+  padding: 10px;
+  border: 1px solid #dddfe4;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.main .submitBtn {
+  width: 100%;
+  padding: 10px 32px 9px 16px;
+  font-size: 14px;
+  outline: none;
+  background: none;
+  border: 1px solid #dddfe4;
+  cursor: pointer;
+}
