@@ -96,121 +96,141 @@ export default function Write() {
         <div>
           <label>나</label>
           <div className={style.positions}>
-            <Image
-              layout="responsive"
-              src="/top.png"
-              alt="top"
-              onClick={() => myPositionHandler("top")}
-              width={80}
-              height={80}
-              style={{
-                opacity: myPosition === "top" ? 1 : 0.4,
-              }}
-            />
-            <Image
-              layout="responsive"
-              src="/mid.png"
-              alt="mid"
-              onClick={() => myPositionHandler("mid")}
-              width={80}
-              height={80}
-              style={{
-                opacity: myPosition === "mid" ? 1 : 0.4,
-              }}
-            />
-            <Image
-              layout="responsive"
-              src="/jg.png"
-              alt="jg"
-              onClick={() => myPositionHandler("jungle")}
-              width={80}
-              height={80}
-              style={{
-                opacity: myPosition === "jungle" ? 1 : 0.4,
-              }}
-            />
-            <Image
-              layout="responsive"
-              src="/bottom.png"
-              alt="bottom"
-              onClick={() => myPositionHandler("bottom")}
-              width={80}
-              height={80}
-              style={{
-                opacity: myPosition === "bottom" ? 1 : 0.4,
-              }}
-            />
-            <Image
-              layout="responsive"
-              src="/sp.png"
-              alt="sp"
-              onClick={() => myPositionHandler("support")}
-              width={80}
-              height={80}
-              style={{
-                opacity: myPosition === "support" ? 1 : 0.4,
-              }}
-            />
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/top.png"
+                alt="top"
+                onClick={() => myPositionHandler("top")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: myPosition === "top" ? 1 : 0.4,
+                }}
+              />
+            </div>
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/mid.png"
+                alt="mid"
+                onClick={() => myPositionHandler("mid")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: myPosition === "mid" ? 1 : 0.4,
+                }}
+              />
+            </div>
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/jg.png"
+                alt="jg"
+                onClick={() => myPositionHandler("jungle")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: myPosition === "jungle" ? 1 : 0.4,
+                }}
+              />
+            </div>
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/bottom.png"
+                alt="bottom"
+                onClick={() => myPositionHandler("bottom")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: myPosition === "bottom" ? 1 : 0.4,
+                }}
+              />
+            </div>
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/sp.png"
+                alt="sp"
+                onClick={() => myPositionHandler("support")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: myPosition === "support" ? 1 : 0.4,
+                }}
+              />
+            </div>
           </div>
         </div>
         <div>
           <label>상대</label>
           <div className={style.positions}>
-            <Image
-              layout="responsive"
-              src="/top.png"
-              alt="top"
-              onClick={() => enemyPositionHandler("top")}
-              width={80}
-              height={80}
-              style={{
-                opacity: enemyPosition === "top" ? 1 : 0.4,
-              }}
-            />
-            <Image
-              layout="responsive"
-              src="/mid.png"
-              alt="mid"
-              onClick={() => enemyPositionHandler("mid")}
-              width={80}
-              height={80}
-              style={{
-                opacity: enemyPosition === "mid" ? 1 : 0.4,
-              }}
-            />
-            <Image
-              layout="responsive"
-              src="/jg.png"
-              alt="jg"
-              onClick={() => enemyPositionHandler("jungle")}
-              width={80}
-              height={80}
-              style={{
-                opacity: enemyPosition === "jungle" ? 1 : 0.4,
-              }}
-            />
-            <Image
-              layout="responsive"
-              src="/bottom.png"
-              alt="bottom"
-              onClick={() => enemyPositionHandler("bottom")}
-              width={80}
-              height={80}
-              style={{
-                opacity: enemyPosition === "bottom" ? 1 : 0.4,
-              }}
-            />
-            <Image
-              layout="responsive"
-              src="/sp.png"
-              alt="sp"
-              onClick={() => enemyPositionHandler("support")}
-              width={80}
-              height={80}
-              style={{
-                opacity: enemyPosition === "support" ? 1 : 0.4,
-              }}
-            />
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/top.png"
+                alt="top"
+                onClick={() => enemyPositionHandler("top")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: enemyPosition === "top" ? 1 : 0.4,
+                }}
+              />
+            </div>
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/mid.png"
+                alt="mid"
+                onClick={() => enemyPositionHandler("mid")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: enemyPosition === "mid" ? 1 : 0.4,
+                }}
+              />
+            </div>
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/jg.png"
+                alt="jg"
+                onClick={() => enemyPositionHandler("jungle")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: enemyPosition === "jungle" ? 1 : 0.4,
+                }}
+              />
+            </div>
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/bottom.png"
+                alt="bottom"
+                onClick={() => enemyPositionHandler("bottom")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: enemyPosition === "bottom" ? 1 : 0.4,
+                }}
+              />
+            </div>
+            <div className={style.img}>
+              <Image
+                layout="responsive"
+                src="/sp.png"
+                alt="sp"
+                onClick={() => enemyPositionHandler("support")}
+                width={100}
+                height={100}
+                style={{
+                  opacity: enemyPosition === "support" ? 1 : 0.4,
+                }}
+              />
+            </div>
           </div>
         </div>
         <Divider />

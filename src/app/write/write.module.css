@@ -24,9 +24,13 @@
 .main .positions {
   display: flex;
   justify-content: space-around;
+  gap: 20px;
 }
 
-.main .positions img {
+.main .positions .img {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px;
   border: 1px solid #dddfe4;
   border-radius: 50%;
