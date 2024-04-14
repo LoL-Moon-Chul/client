@@ -1,0 +1,20 @@
+.btn {
+  min-width: 72px;
+  min-height: 36px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  font-size: 16px;
+  border-radius: 8px;
+  padding: 0 16px;
+  cursor: pointer;
+}
+
+@media screen and (max-width: 768px) {
+  .btn {
+    min-width: 48px;
+    min-height: 24px;
+    font-size: 14px;
+    border-radius: 6px;
+  }
+}

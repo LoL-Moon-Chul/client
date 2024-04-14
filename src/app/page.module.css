@@ -1,2 +1,127 @@
 .main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 728px;
+  min-height: calc(100dvh - 48px);
+  /* background: #fff; */
+  /* box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15); */
+}
+
+.main .card {
+  width: 100%;
+  margin: 0 auto;
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+  border-radius: 10px;
+  /* cursor: pointer; */
+}
+
+.main .card:hover {
+  box-shadow: 0 3px 9px 0 rgba(0, 0, 0, 0.15);
+}
+
+.main .card .cardHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  font-weight: 700;
+  color: #333;
+  border-bottom: 1px solid #ebeef1;
+}
+
+.main .card .cardBody {
+  width: 100%;
+  height: 300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px;
+}
+
+.main .card .cardBody .left,
+.main .card .cardBody .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 30%;
+  height: 100%;
+}
+
+.main .card .cardBody .left .postionImage,
+.main .card .cardBody .right .postionImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 12px solid #ebeef1;
+  border-radius: 50%;
+  padding: 12px;
+}
+
+.main .card .cardBody .left .user,
+.main .card .cardBody .right .user {
+  font-weight: 600;
+}
+
+.main .card .cardBody .middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 40%;
+  height: 100%;
+}
+
+.main .card .cardBody .middle .date {
+  font-weight: 600;
+  color: #333;
+}
+
+.main .card .cardBody .middle .vote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.main .card .cardBody .middle .vote .voteCount {
+  font-weight: 600;
+  font-size: 48px;
+}
+
+.main .card .cardBody .middle .vote .colon {
+  font-weight: 600;
+  font-size: 38px;
+  color: #adacac;
+}
+
+@media screen and (max-width: 768px) {
+  .main {
+    font-size: 14px;
+  }
+
+  .main .card .cardBody {
+    width: 100%;
+    height: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px;
+  }
+
+  .main .card .cardBody .middle .vote .voteCount {
+    font-weight: 600;
+    font-size: 38px;
+  }
+
+  .main .card .cardBody .middle .vote .colon {
+    font-weight: 600;
+    font-size: 28px;
+    color: #adacac;
+  }
 }

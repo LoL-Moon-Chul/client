@@ -97,6 +97,7 @@ export default function Write() {
           <label>나</label>
           <div className={style.positions}>
             <Image
+              layout="responsive"
               src="/top.png"
               alt="top"
               onClick={() => myPositionHandler("top")}
@@ -107,6 +108,7 @@ export default function Write() {
               }}
             />
             <Image
+              layout="responsive"
               src="/mid.png"
               alt="mid"
               onClick={() => myPositionHandler("mid")}
@@ -117,6 +119,7 @@ export default function Write() {
               }}
             />
             <Image
+              layout="responsive"
               src="/jg.png"
               alt="jg"
               onClick={() => myPositionHandler("jungle")}
@@ -127,6 +130,7 @@ export default function Write() {
               }}
             />
             <Image
+              layout="responsive"
               src="/bottom.png"
               alt="bottom"
               onClick={() => myPositionHandler("bottom")}
@@ -137,6 +141,7 @@ export default function Write() {
               }}
             />
             <Image
+              layout="responsive"
               src="/sp.png"
               alt="sp"
               onClick={() => myPositionHandler("support")}
@@ -152,6 +157,7 @@ export default function Write() {
           <label>상대</label>
           <div className={style.positions}>
             <Image
+              layout="responsive"
               src="/top.png"
               alt="top"
               onClick={() => enemyPositionHandler("top")}
@@ -162,6 +168,7 @@ export default function Write() {
               }}
             />
             <Image
+              layout="responsive"
               src="/mid.png"
               alt="mid"
               onClick={() => enemyPositionHandler("mid")}
@@ -172,6 +179,7 @@ export default function Write() {
               }}
             />
             <Image
+              layout="responsive"
               src="/jg.png"
               alt="jg"
               onClick={() => enemyPositionHandler("jungle")}
@@ -182,6 +190,7 @@ export default function Write() {
               }}
             />
             <Image
+              layout="responsive"
               src="/bottom.png"
               alt="bottom"
               onClick={() => enemyPositionHandler("bottom")}
@@ -192,6 +201,7 @@ export default function Write() {
               }}
             />
             <Image
+              layout="responsive"
               src="/sp.png"
               alt="sp"
               onClick={() => enemyPositionHandler("support")}
