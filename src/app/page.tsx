@@ -1,8 +1,10 @@
 "use client";
 
+import { useEffect } from "react";
 import Image from "next/image";
 
 import dayjs from "dayjs";
+import { useInView } from "react-intersection-observer";
 
 import { usePost } from "@/hooks/usePost";
 
@@ -11,8 +13,9 @@ import { LargeButton } from "@/components/LargeButton";
 import styles from "./page.module.css";
 
 export default function Home() {
-  const { data } = usePost({ page: 0, size: 10, sort: "createdAt,desc" });
-  console.log(data);
+  const { data, fetchNextPage } = usePost();
+
+  const [ref, inView] = useInView();
 
   const getLineImage = (line: string) => {
     switch (line) {
@@ -31,9 +34,15 @@ export default function Home() {
     }
   };
 
+  useEffect(() => {
+    if (inView) {
+      fetchNextPage();
+    }
+  }, [inView]);
+
   return (
     <main className={styles.main}>
-      {data?.map((post) => (
+      {data.map((post) => (
         <div key={post.postId} className={styles.card}>
           <div className={styles.cardHeader}>{post.title}</div>
           <div className={styles.cardBody}>
@@ -91,6 +100,7 @@ export default function Home() {
           </div>
         </div>
       ))}
+      <div ref={ref} />
     </main>
   );
 }
