@@ -9,6 +9,6 @@ const axiosInstance = createAxiosInstance(
 );
 
 export const postAPI = {
-  getProfile: (data: WritePost) =>
+  writePost: (data: WritePost) =>
     axiosInstance.post("/private", data).then((res) => res.data),
 };

@@ -3,5 +3,6 @@ export interface WritePost {
   content: string;
   point: string;
   lolName: string;
-  line: string;
+  lineA: string;
+  lineB: string;
 }

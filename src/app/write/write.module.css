@@ -36,9 +36,11 @@
 .main .submitBtn {
   width: 100%;
   padding: 10px 32px 9px 16px;
+  margin-top: 10px;
   font-size: 14px;
   outline: none;
-  background: none;
-  border: 1px solid #dddfe4;
+  color: #fff;
+  background: #46cfa7;
+  border: 1px solid #46cfa7;
   cursor: pointer;
 }

@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
-
 import { Noto_Sans_KR } from "next/font/google";
 
+import { ToastContainer } from "react-toastify";
+
 import { Header } from "@/components/Header";
+import Providers from "@/components/Providers";
 
 import "./globals.css";
 import styles from "./layout.module.css";
-import Providers from "@/components/Providers";
+import "react-toastify/dist/ReactToastify.css";
 
 const noto = Noto_Sans_KR({
   subsets: ["latin"],
@@ -30,6 +32,7 @@ export default function RootLayout({
           <div className={styles.container}>
             <Header />
             <div className={styles.content}>{children}</div>
+            <ToastContainer />
           </div>
         </Providers>
       </body>

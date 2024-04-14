@@ -4,10 +4,11 @@ import { useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
 
-import { useForm, SubmitHandler } from "react-hook-form";
+import { useForm, SubmitHandler, FieldErrors } from "react-hook-form";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
+import { toast } from "react-toastify";
 
-import { WritePost } from "@/modules";
+import { WritePost, postAPI } from "@/modules";
 
 import { Divider } from "@/components/Divider";
 
@@ -34,14 +35,48 @@ export default function Write() {
     setEnemyPosition(position);
   };
 
-  const onSubmit: SubmitHandler<WritePost> = (data) => {
-    console.log("data", data);
+  const onSubmit: SubmitHandler<WritePost> = async (data) => {
+    if (!myPosition || !enemyPosition) {
+      toast.error("라인을 선택해주세요");
+      return;
+    }
+    if (!content) {
+      toast.error("내용을 입력해주세요");
+      return;
+    }
+    try {
+      const res = await postAPI.writePost({
+        ...data,
+        lineA: myPosition,
+        lineB: enemyPosition,
+        content,
+      });
+      // TODO: Redirect to the post page
+      console.log(res.postId);
+    } catch (error) {
+      toast.error("게시글 작성에 실패했습니다");
+    }
+  };
+
+  const onInvalid = (data: FieldErrors) => {
+    if (data.title) {
+      toast.error("제목을 입력해주세요");
+      return;
+    }
+    if (data.lolName) {
+      toast.error("롤 닉네임을 입력해주세요");
+      return;
+    }
+    if (data.point) {
+      toast.error("요약을 입력해주세요");
+      return;
+    }
   };
 
   return (
     <main className={style.main}>
       <div className={style.title}>게시글 작성</div>
-      <form onSubmit={handleSubmit(onSubmit)}>
+      <form onSubmit={handleSubmit(onSubmit, onInvalid)}>
         <div>
           <div>
             <input
@@ -84,11 +119,11 @@ export default function Write() {
             <Image
               src="/jg.png"
               alt="jg"
-              onClick={() => myPositionHandler("jg")}
+              onClick={() => myPositionHandler("jungle")}
               width={80}
               height={80}
               style={{
-                opacity: myPosition === "jg" ? 1 : 0.4,
+                opacity: myPosition === "jungle" ? 1 : 0.4,
               }}
             />
             <Image
@@ -104,11 +139,11 @@ export default function Write() {
             <Image
               src="/sp.png"
               alt="sp"
-              onClick={() => myPositionHandler("sp")}
+              onClick={() => myPositionHandler("support")}
               width={80}
               height={80}
               style={{
-                opacity: myPosition === "sp" ? 1 : 0.4,
+                opacity: myPosition === "support" ? 1 : 0.4,
               }}
             />
           </div>
@@ -139,11 +174,11 @@ export default function Write() {
             <Image
               src="/jg.png"
               alt="jg"
-              onClick={() => enemyPositionHandler("jg")}
+              onClick={() => enemyPositionHandler("jungle")}
               width={80}
               height={80}
               style={{
-                opacity: enemyPosition === "jg" ? 1 : 0.4,
+                opacity: enemyPosition === "jungle" ? 1 : 0.4,
               }}
             />
             <Image
@@ -159,11 +194,11 @@ export default function Write() {
             <Image
               src="/sp.png"
               alt="sp"
-              onClick={() => enemyPositionHandler("sp")}
+              onClick={() => enemyPositionHandler("support")}
               width={80}
               height={80}
               style={{
-                opacity: enemyPosition === "sp" ? 1 : 0.4,
+                opacity: enemyPosition === "support" ? 1 : 0.4,
               }}
             />
           </div>
