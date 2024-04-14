@@ -102,8 +102,8 @@ export default function Write() {
                 src="/top.png"
                 alt="top"
                 onClick={() => myPositionHandler("top")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: myPosition === "top" ? 1 : 0.4,
                 }}
@@ -115,8 +115,8 @@ export default function Write() {
                 src="/mid.png"
                 alt="mid"
                 onClick={() => myPositionHandler("mid")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: myPosition === "mid" ? 1 : 0.4,
                 }}
@@ -128,8 +128,8 @@ export default function Write() {
                 src="/jg.png"
                 alt="jg"
                 onClick={() => myPositionHandler("jungle")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: myPosition === "jungle" ? 1 : 0.4,
                 }}
@@ -141,8 +141,8 @@ export default function Write() {
                 src="/bottom.png"
                 alt="bottom"
                 onClick={() => myPositionHandler("bottom")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: myPosition === "bottom" ? 1 : 0.4,
                 }}
@@ -154,8 +154,8 @@ export default function Write() {
                 src="/sp.png"
                 alt="sp"
                 onClick={() => myPositionHandler("support")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: myPosition === "support" ? 1 : 0.4,
                 }}
@@ -172,8 +172,8 @@ export default function Write() {
                 src="/top.png"
                 alt="top"
                 onClick={() => enemyPositionHandler("top")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: enemyPosition === "top" ? 1 : 0.4,
                 }}
@@ -185,8 +185,8 @@ export default function Write() {
                 src="/mid.png"
                 alt="mid"
                 onClick={() => enemyPositionHandler("mid")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: enemyPosition === "mid" ? 1 : 0.4,
                 }}
@@ -198,8 +198,8 @@ export default function Write() {
                 src="/jg.png"
                 alt="jg"
                 onClick={() => enemyPositionHandler("jungle")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: enemyPosition === "jungle" ? 1 : 0.4,
                 }}
@@ -211,8 +211,8 @@ export default function Write() {
                 src="/bottom.png"
                 alt="bottom"
                 onClick={() => enemyPositionHandler("bottom")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: enemyPosition === "bottom" ? 1 : 0.4,
                 }}
@@ -224,8 +224,8 @@ export default function Write() {
                 src="/sp.png"
                 alt="sp"
                 onClick={() => enemyPositionHandler("support")}
-                width={100}
-                height={100}
+                width={120}
+                height={120}
                 style={{
                   opacity: enemyPosition === "support" ? 1 : 0.4,
                 }}
@@ -236,6 +236,8 @@ export default function Write() {
         <Divider />
         <div
           style={{
+            display: "inline-block",
+            width: "100%",
             height: "380px",
           }}
         >
