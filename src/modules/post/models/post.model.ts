@@ -18,5 +18,6 @@ export interface ResponsePost {
   lineB: string;
   voteA: number;
   voteB: number;
+  content: string;
   createdAt: string;
 }

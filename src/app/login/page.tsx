@@ -7,7 +7,7 @@ import { setCookie } from "cookies-next";
 
 import { memberAPI } from "@/modules";
 
-import style from "./login.module.css";
+import styles from "./login.module.css";
 
 const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URL}&response_type=code`;
 
@@ -42,10 +42,10 @@ export default function Login() {
   }, [loginCode, router]);
 
   return (
-    <main className={style.main}>
-      <div className={style.title}>로그인</div>
-      <div className={style.desc}>롤문철에 오신 것을 환영합니다.</div>
-      <div className={style.kakao} onClick={handleLogin}>
+    <main className={styles.main}>
+      <div className={styles.title}>로그인</div>
+      <div className={styles.desc}>롤문철에 오신 것을 환영합니다.</div>
+      <div className={styles.kakao} onClick={handleLogin}>
         카카오 로그인
       </div>
     </main>

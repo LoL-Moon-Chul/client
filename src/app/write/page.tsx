@@ -3,6 +3,7 @@
 import { useState } from "react";
 import Image from "next/image";
 import dynamic from "next/dynamic";
+import { useRouter } from "next/navigation";
 
 import { useForm, SubmitHandler, FieldErrors } from "react-hook-form";
 const ReactQuill = dynamic(() => import("react-quill"), { ssr: false });
@@ -12,7 +13,7 @@ import { WritePost, postAPI } from "@/modules";
 
 import { Divider } from "@/components/Divider";
 
-import style from "./write.module.css";
+import styles from "./write.module.css";
 import "react-quill/dist/quill.snow.css";
 
 export default function Write() {
@@ -22,6 +23,8 @@ export default function Write() {
     watch,
     formState: { errors },
   } = useForm<WritePost>();
+
+  const router = useRouter();
 
   const [myPosition, setMyPosition] = useState<string>("");
   const [enemyPosition, setEnemyPosition] = useState<string>("");
@@ -51,8 +54,7 @@ export default function Write() {
         lineB: enemyPosition,
         content,
       });
-      // TODO: Redirect to the post page
-      console.log(res.postId);
+      router.push(`/post/${res.postId}`);
     } catch (error) {
       toast.error("게시글 작성에 실패했습니다");
     }
@@ -74,8 +76,8 @@ export default function Write() {
   };
 
   return (
-    <main className={style.main}>
-      <div className={style.title}>게시글 작성</div>
+    <main className={styles.main}>
+      <div className={styles.title}>게시글 작성</div>
       <form onSubmit={handleSubmit(onSubmit, onInvalid)}>
         <div>
           <div>
@@ -95,8 +97,8 @@ export default function Write() {
         </div>
         <div>
           <label>나</label>
-          <div className={style.positions}>
-            <div className={style.img}>
+          <div className={styles.positions}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/top.png"
@@ -109,7 +111,7 @@ export default function Write() {
                 }}
               />
             </div>
-            <div className={style.img}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/mid.png"
@@ -122,7 +124,7 @@ export default function Write() {
                 }}
               />
             </div>
-            <div className={style.img}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/jg.png"
@@ -135,7 +137,7 @@ export default function Write() {
                 }}
               />
             </div>
-            <div className={style.img}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/bottom.png"
@@ -148,7 +150,7 @@ export default function Write() {
                 }}
               />
             </div>
-            <div className={style.img}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/sp.png"
@@ -165,8 +167,8 @@ export default function Write() {
         </div>
         <div>
           <label>상대</label>
-          <div className={style.positions}>
-            <div className={style.img}>
+          <div className={styles.positions}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/top.png"
@@ -179,7 +181,7 @@ export default function Write() {
                 }}
               />
             </div>
-            <div className={style.img}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/mid.png"
@@ -192,7 +194,7 @@ export default function Write() {
                 }}
               />
             </div>
-            <div className={style.img}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/jg.png"
@@ -205,7 +207,7 @@ export default function Write() {
                 }}
               />
             </div>
-            <div className={style.img}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/bottom.png"
@@ -218,7 +220,7 @@ export default function Write() {
                 }}
               />
             </div>
-            <div className={style.img}>
+            <div className={styles.img}>
               <Image
                 layout="responsive"
                 src="/sp.png"
@@ -264,7 +266,7 @@ export default function Write() {
           <label>요약</label>
           <textarea rows={3} {...register("point", { required: true })} />
         </div>
-        <button className={style.submitBtn} type="submit">
+        <button className={styles.submitBtn} type="submit">
           작성
         </button>
       </form>

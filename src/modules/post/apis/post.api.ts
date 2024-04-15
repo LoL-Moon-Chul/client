@@ -19,4 +19,8 @@ export const postAPI = {
         totalPages: number;
       }>(`${apiUrl}/public`, { params: filter })
       .then((res) => res.data),
+  getPostDetail: (postId: number) =>
+    axios
+      .get<ResponsePost>(`${apiUrl}/public/${postId}`)
+      .then((res) => res.data),
 };

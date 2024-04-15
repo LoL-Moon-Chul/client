@@ -2,6 +2,7 @@
 
 import { useEffect } from "react";
 import Image from "next/image";
+import Link from "next/link";
 
 import dayjs from "dayjs";
 import { useInView } from "react-intersection-observer";
@@ -82,7 +83,9 @@ export default function Home() {
                 </span>
               </div>
               <div className={styles.detailButton}>
-                <LargeButton text="상세보기" />
+                <Link href={`/post/${post.postId}`}>
+                  <LargeButton text="상세보기" />
+                </Link>
               </div>
             </div>
             <div className={styles.right}>

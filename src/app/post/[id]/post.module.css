@@ -1,0 +1,58 @@
+.main {
+  max-width: 728px;
+  min-height: calc(100dvh - 48px);
+  background: #fff;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.15);
+}
+
+.main .title {
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.main .title h1 {
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  word-break: break-all;
+}
+
+.main .title div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.main .title div span {
+  font-size: 14px;
+  color: #868e96;
+}
+
+.main .content {
+  min-height: 400px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.main .label {
+  font-size: 18px;
+  font-weight: 500;
+  padding: 8px 0;
+}
+
+.main .point {
+  font-size: 14px;
+  white-space: pre-wrap;
+  padding-bottom: 16px;
+  border-bottom: 1px solid #e9ecef;
+}
+
+.main .voteBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e9ecef;
+}
