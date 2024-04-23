@@ -15,7 +15,7 @@ export const VoteButton = (props: VoteButtonProps) => {
   const { postId } = props;
   const { user } = useUser();
   const { data } = useCheckVoteUser(postId);
-
+  console.log('data##', data);
   // TODO:: 로그인 안했을시 예외 처리
 
   return (

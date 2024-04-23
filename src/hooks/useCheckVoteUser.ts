@@ -5,7 +5,7 @@ export const useCheckVoteUser = (postId: number) => {
   const queryClient = useQueryClient();
 
   const { data, isLoading, error } = useQuery({
-    queryKey: ['user'],
+    queryKey: ['checkVoteUser', postId],
     queryFn: () => voteAPI.checkVoteUser(postId),
   });
 
