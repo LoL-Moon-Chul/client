@@ -1,0 +1,8 @@
+.voteBox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  padding: 16px 0;
+  border-bottom: 1px solid #e9ecef;
+}
