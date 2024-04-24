@@ -1,27 +1,127 @@
-'use client';
+"use client";
 
-import { Button } from './Button';
+import { useState } from "react";
+import Image from "next/image";
 
-import { useCheckVoteUser } from '@/hooks/useCheckVoteUser';
+import { toast } from "react-toastify";
 
-import styles from './votebutton.module.css';
-import { useUser } from '@/hooks/useUser';
+import { Button } from "./Button";
+
+import { useCheckVoteUser } from "@/hooks/useCheckVoteUser";
+import { useUser } from "@/hooks/useUser";
+
+import { voteAPI } from "@/modules";
+
+import styles from "./votebutton.module.css";
 
 interface VoteButtonProps {
   postId: number;
+  lineA: string;
+  lineB: string;
+  voteA: number;
+  voteB: number;
 }
 
 export const VoteButton = (props: VoteButtonProps) => {
-  const { postId } = props;
+  const { postId, lineA, lineB, voteA, voteB } = props;
+
   const { user } = useUser();
-  const { data } = useCheckVoteUser(postId);
-  console.log('data##', data);
-  // TODO:: 로그인 안했을시 예외 처리
+  const { data, mutation } = useCheckVoteUser(postId);
+
+  const [tempVoteCount, setTempVoteCount] = useState({ voteA, voteB });
+
+  const onClickVote = async (vote: string) => {
+    if (!user) {
+      toast.error("로그인 후 이용해주세요.");
+      return;
+    }
+    if (data?.userVoted) {
+      toast.error("이미 투표하셨습니다.");
+      return;
+    }
+    await voteAPI.vote({ postId, voteOption: vote });
+    setTempVoteCount((prev) => ({
+      ...prev,
+      [vote === "A" ? "voteA" : "voteB"]:
+        prev[vote === "A" ? "voteA" : "voteB"] + 1,
+    }));
+    toast.success("투표 완료되었습니다.");
+    mutation.mutate();
+  };
+
+  const getLineImage = (line: string) => {
+    switch (line) {
+      case "top":
+        return "/top.png";
+      case "jungle":
+        return "/jg.png";
+      case "mid":
+        return "/mid.png";
+      case "bottom":
+        return "/bottom.png";
+      case "support":
+        return "/sp.png";
+      default:
+        return "";
+    }
+  };
 
   return (
     <div className={styles.voteBox}>
-      <Button color='#fff' backgroundColor='#28344e' text='투표A' />
-      <Button text='투표B' />
+      <div className={styles.left}>
+        <div className={styles.postionImage}>
+          <Image
+            src={getLineImage(lineA)}
+            alt="myPosition"
+            layout="responsive"
+            width={100}
+            height={100}
+          />
+        </div>
+        <div className={styles.user}>플레이어1</div>
+        <Button
+          color="#fff"
+          backgroundColor="#28344e"
+          text="투표A"
+          onClick={() => onClickVote("A")}
+        />
+      </div>
+      <div className={styles.middle}>
+        <div className={styles.vote}>
+          <span
+            className={styles.voteCount}
+            style={{
+              color:
+                tempVoteCount.voteA > tempVoteCount.voteB ? "#46cfa7" : "#333",
+            }}
+          >
+            {tempVoteCount.voteA}
+          </span>
+          <span className={styles.colon}>:</span>
+          <span
+            className={styles.voteCount}
+            style={{
+              color:
+                tempVoteCount.voteB > tempVoteCount.voteA ? "#46cfa7" : "#333",
+            }}
+          >
+            {tempVoteCount.voteB}
+          </span>
+        </div>
+      </div>
+      <div className={styles.right}>
+        <div className={styles.postionImage}>
+          <Image
+            src={getLineImage(lineB)}
+            alt="enemyPosition"
+            layout="responsive"
+            width={100}
+            height={100}
+          />
+        </div>
+        <div className={styles.user}>플레이어2</div>
+        <Button text="투표B" onClick={() => onClickVote("B")} />
+      </div>
     </div>
   );
 };

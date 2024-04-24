@@ -76,7 +76,7 @@ export default function Home() {
                 <span
                   className={styles.voteCount}
                   style={{
-                    color: post.voteB > post.voteB ? "#46cfa7" : "#333",
+                    color: post.voteB > post.voteA ? "#46cfa7" : "#333",
                   }}
                 >
                   {post.voteB}

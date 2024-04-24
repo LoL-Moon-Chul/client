@@ -6,3 +6,56 @@
   padding: 16px 0;
   border-bottom: 1px solid #e9ecef;
 }
+
+.voteBox .left,
+.voteBox .right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: 100%;
+}
+
+.voteBox .left .postionImage,
+.voteBox .right .postionImage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 12px solid #ebeef1;
+  border-radius: 50%;
+  padding: 12px;
+}
+
+.voteBox .left .user,
+.voteBox .right .user {
+  font-weight: 600;
+}
+
+.voteBox .middle {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  width: 40%;
+  height: 100%;
+}
+
+.voteBox .middle .vote {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.voteBox .middle .vote .voteCount {
+  font-weight: 600;
+  font-size: 48px;
+}
+
+.voteBox .middle .vote .colon {
+  font-weight: 600;
+  font-size: 38px;
+  color: #adacac;
+}
