@@ -12,6 +12,8 @@ import { useUser } from "@/hooks/useUser";
 
 import { voteAPI } from "@/modules";
 
+import { getLineImage } from "@/utils/getLineImage";
+
 import styles from "./votebutton.module.css";
 
 interface VoteButtonProps {
@@ -47,23 +49,6 @@ export const VoteButton = (props: VoteButtonProps) => {
     }));
     toast.success("투표 완료되었습니다.");
     mutation.mutate();
-  };
-
-  const getLineImage = (line: string) => {
-    switch (line) {
-      case "top":
-        return "/top.png";
-      case "jungle":
-        return "/jg.png";
-      case "mid":
-        return "/mid.png";
-      case "bottom":
-        return "/bottom.png";
-      case "support":
-        return "/sp.png";
-      default:
-        return "";
-    }
   };
 
   return (

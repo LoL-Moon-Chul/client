@@ -30,6 +30,13 @@ export const Header = () => {
             <Link href="/write">
               <Button color="#fff" backgroundColor="#28344e" text="글 쓰기" />
             </Link>
+            <Link href="/my">
+              <Button
+                color="#28344e"
+                backgroundColor="#ebeef1"
+                text="내 게시글"
+              />
+            </Link>
             <Button onClick={onClickLogout} text="로그아웃" />
           </div>
         ) : (
