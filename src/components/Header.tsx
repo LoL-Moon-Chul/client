@@ -1,21 +1,21 @@
-"use client";
+'use client';
 
-import Link from "next/link";
+import Link from 'next/link';
 
-import { deleteCookie } from "cookies-next";
+import { deleteCookie } from 'cookies-next';
 
-import { Button } from "./Button";
+import { Button } from './Button';
 
-import { useUser } from "@/hooks/useUser";
+import { useUser } from '@/hooks/useUser';
 
-import styles from "./header.module.css";
+import styles from './header.module.css';
 
 export const Header = () => {
   const { user } = useUser();
 
   const onClickLogout = () => {
-    deleteCookie("lmc_asct");
-    deleteCookie("lmc_rsct");
+    deleteCookie('lmc_asct');
+    deleteCookie('lmc_rsct');
     location.reload();
   };
 

@@ -1,14 +1,14 @@
-"use client";
+'use client';
 
-import { useEffect } from "react";
+import { useEffect } from 'react';
 
-import { useInView } from "react-intersection-observer";
+import { useInView } from 'react-intersection-observer';
 
-import { usePost } from "@/hooks/usePost";
+import { usePost } from '@/hooks/usePost';
 
-import { PostCard } from "@/components/PostCard";
+import { PostCard } from '@/components/PostCard';
 
-import styles from "./page.module.css";
+import styles from './page.module.css';
 
 export default function Home() {
   const { data, fetchNextPage } = usePost();

@@ -1,5 +1,5 @@
-import { useInfiniteQuery } from "@tanstack/react-query";
-import { postAPI } from "@/modules";
+import { useInfiniteQuery } from '@tanstack/react-query';
+import { postAPI } from '@/modules';
 
 export const usePost = () => {
   const {
@@ -11,12 +11,12 @@ export const usePost = () => {
     isFetchingNextPage,
     status,
   } = useInfiniteQuery({
-    queryKey: ["posts"],
+    queryKey: ['posts'],
     queryFn: ({ pageParam = 0 }) =>
       postAPI.getPostList({
         page: pageParam,
         size: 10,
-        sort: "createdAt,desc",
+        sort: 'createdAt,desc',
       }),
     initialPageParam: 0,
     getNextPageParam: (lastPage, pages) =>

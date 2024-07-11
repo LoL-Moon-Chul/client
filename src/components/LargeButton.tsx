@@ -1,4 +1,4 @@
-import styles from "./largebutton.module.css";
+import styles from './largebutton.module.css';
 
 interface LargeButtonProps {
   text: string;
@@ -14,8 +14,8 @@ export const LargeButton = (props: LargeButtonProps) => {
     <div
       className={styles.btn}
       style={{
-        backgroundColor: backgroundColor || "#5382E8",
-        color: color || "#fff",
+        backgroundColor: backgroundColor || '#5382E8',
+        color: color || '#fff',
       }}
       onClick={onClick}
     >

@@ -1,4 +1,4 @@
-import styles from "./button.module.css";
+import styles from './button.module.css';
 
 interface ButtonProps {
   text: string;
@@ -14,8 +14,8 @@ export const Button = (props: ButtonProps) => {
     <div
       className={styles.btn}
       style={{
-        backgroundColor: backgroundColor || "#5382E8",
-        color: color || "#fff",
+        backgroundColor: backgroundColor || '#5382E8',
+        color: color || '#fff',
       }}
       onClick={onClick}
     >

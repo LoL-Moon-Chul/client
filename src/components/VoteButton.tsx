@@ -1,20 +1,20 @@
-"use client";
+'use client';
 
-import { useState } from "react";
-import Image from "next/image";
+import { useState } from 'react';
+import Image from 'next/image';
 
-import { toast } from "react-toastify";
+import { toast } from 'react-toastify';
 
-import { Button } from "./Button";
+import { Button } from './Button';
 
-import { useCheckVoteUser } from "@/hooks/useCheckVoteUser";
-import { useUser } from "@/hooks/useUser";
+import { useCheckVoteUser } from '@/hooks/useCheckVoteUser';
+import { useUser } from '@/hooks/useUser';
 
-import { voteAPI } from "@/modules";
+import { voteAPI } from '@/modules';
 
-import { getLineImage } from "@/utils/getLineImage";
+import { getLineImage } from '@/utils/getLineImage';
 
-import styles from "./votebutton.module.css";
+import styles from './votebutton.module.css';
 
 interface VoteButtonProps {
   postId: number;
@@ -34,20 +34,20 @@ export const VoteButton = (props: VoteButtonProps) => {
 
   const onClickVote = async (vote: string) => {
     if (!user) {
-      toast.error("로그인 후 이용해주세요.");
+      toast.error('로그인 후 이용해주세요.');
       return;
     }
     if (data?.userVoted) {
-      toast.error("이미 투표하셨습니다.");
+      toast.error('이미 투표하셨습니다.');
       return;
     }
     await voteAPI.vote({ postId, voteOption: vote });
     setTempVoteCount((prev) => ({
       ...prev,
-      [vote === "A" ? "voteA" : "voteB"]:
-        prev[vote === "A" ? "voteA" : "voteB"] + 1,
+      [vote === 'A' ? 'voteA' : 'voteB']:
+        prev[vote === 'A' ? 'voteA' : 'voteB'] + 1,
     }));
-    toast.success("투표 완료되었습니다.");
+    toast.success('투표 완료되었습니다.');
     mutation.mutate();
   };
 
@@ -68,7 +68,7 @@ export const VoteButton = (props: VoteButtonProps) => {
           color="#fff"
           backgroundColor="#28344e"
           text="투표A"
-          onClick={() => onClickVote("A")}
+          onClick={() => onClickVote('A')}
         />
       </div>
       <div className={styles.middle}>
@@ -77,7 +77,7 @@ export const VoteButton = (props: VoteButtonProps) => {
             className={styles.voteCount}
             style={{
               color:
-                tempVoteCount.voteA > tempVoteCount.voteB ? "#46cfa7" : "#333",
+                tempVoteCount.voteA > tempVoteCount.voteB ? '#46cfa7' : '#333',
             }}
           >
             {tempVoteCount.voteA}
@@ -87,7 +87,7 @@ export const VoteButton = (props: VoteButtonProps) => {
             className={styles.voteCount}
             style={{
               color:
-                tempVoteCount.voteB > tempVoteCount.voteA ? "#46cfa7" : "#333",
+                tempVoteCount.voteB > tempVoteCount.voteA ? '#46cfa7' : '#333',
             }}
           >
             {tempVoteCount.voteB}
@@ -105,7 +105,7 @@ export const VoteButton = (props: VoteButtonProps) => {
           />
         </div>
         <div className={styles.user}>플레이어2</div>
-        <Button text="투표B" onClick={() => onClickVote("B")} />
+        <Button text="투표B" onClick={() => onClickVote('B')} />
       </div>
     </div>
   );

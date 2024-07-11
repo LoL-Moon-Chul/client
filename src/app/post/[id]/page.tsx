@@ -1,10 +1,10 @@
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 
-import { postAPI } from "@/modules";
+import { postAPI } from '@/modules';
 
-import { VoteButton } from "@/components/VoteButton";
+import { VoteButton } from '@/components/VoteButton';
 
-import styles from "./post.module.css";
+import styles from './post.module.css';
 
 export default async function Post({
   params: { id },
@@ -19,7 +19,7 @@ export default async function Post({
         <h1>{post.title}</h1>
         <div>
           <span>{post.memberName}</span>
-          <span>{dayjs(post.createdAt).format("YYYY.MM.DD HH:mm")}</span>
+          <span>{dayjs(post.createdAt).format('YYYY.MM.DD HH:mm')}</span>
         </div>
       </div>
       <div

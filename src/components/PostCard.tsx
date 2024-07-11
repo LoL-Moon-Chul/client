@@ -1,15 +1,15 @@
-import Image from "next/image";
-import Link from "next/link";
+import Image from 'next/image';
+import Link from 'next/link';
 
-import dayjs from "dayjs";
+import dayjs from 'dayjs';
 
-import { ResponsePost } from "@/modules";
+import { ResponsePost } from '@/modules';
 
-import { getLineImage } from "@/utils/getLineImage";
+import { getLineImage } from '@/utils/getLineImage';
 
-import { LargeButton } from "./LargeButton";
+import { LargeButton } from './LargeButton';
 
-import styles from "./postcard.module.css";
+import styles from './postcard.module.css';
 
 interface PostCardProps {
   post: ResponsePost;
@@ -36,13 +36,13 @@ export const PostCard = (props: PostCardProps) => {
         </div>
         <div className={styles.middle}>
           <div className={styles.date}>
-            {dayjs(post.createdAt).format("YYYY.MM.DD HH:mm")}
+            {dayjs(post.createdAt).format('YYYY.MM.DD HH:mm')}
           </div>
           <div className={styles.vote}>
             <span
               className={styles.voteCount}
               style={{
-                color: post.voteA > post.voteB ? "#46cfa7" : "#333",
+                color: post.voteA > post.voteB ? '#46cfa7' : '#333',
               }}
             >
               {post.voteA}
@@ -51,7 +51,7 @@ export const PostCard = (props: PostCardProps) => {
             <span
               className={styles.voteCount}
               style={{
-                color: post.voteB > post.voteA ? "#46cfa7" : "#333",
+                color: post.voteB > post.voteA ? '#46cfa7' : '#333',
               }}
             >
               {post.voteB}

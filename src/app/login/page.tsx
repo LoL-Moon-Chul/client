@@ -1,13 +1,13 @@
-"use client";
+'use client';
 
-import { useEffect, useState } from "react";
-import { useSearchParams, useRouter } from "next/navigation";
+import { useEffect, useState } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 
-import { setCookie } from "cookies-next";
+import { setCookie } from 'cookies-next';
 
-import { memberAPI } from "@/modules";
+import { memberAPI } from '@/modules';
 
-import styles from "./login.module.css";
+import styles from './login.module.css';
 
 const kakaoURL = `https://kauth.kakao.com/oauth/authorize?client_id=${process.env.NEXT_PUBLIC_KAKAO_CLIENT_ID}&redirect_uri=${process.env.NEXT_PUBLIC_KAKAO_REDIRECT_URL}&response_type=code`;
 
@@ -17,7 +17,7 @@ export default function Login() {
 
   const [loginCode, setLoginCode] = useState<string | null>(null);
 
-  const code = searchParams.get("code");
+  const code = searchParams.get('code');
 
   const handleLogin = () => {
     window.location.href = kakaoURL;
@@ -34,9 +34,9 @@ export default function Login() {
       (async () => {
         const { accessToken, refreshTokens } = await memberAPI.login(loginCode);
         if (!accessToken || !refreshTokens) return;
-        setCookie("lmc_asct", accessToken);
-        setCookie("lmc_rsct", refreshTokens);
-        router.push("/");
+        setCookie('lmc_asct', accessToken);
+        setCookie('lmc_rsct', refreshTokens);
+        router.push('/');
       })();
     }
   }, [loginCode, router]);
